@@ -15,11 +15,16 @@ public class player_eingabe : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float ty = Input.GetAxis("Vertical") * meineSprungGeschwindigkeit;
-        ty *= Time.deltaTime;
+        float tz = Input.GetAxis("Vertical") * meineGeschwindigkeit;
+        tz *= Time.deltaTime;
         float tx = Input.GetAxis("Horizontal") * meineGeschwindigkeit;
         tx *= Time.deltaTime;
-        transform.Translate(tx, ty, 0);
+        float ty = 0;
+        if (Input.GetKey(KeyCode.Space))
+        {
+            ty = meineSprungGeschwindigkeit * Time.deltaTime;
+        }
+        transform.Translate(tx, ty, tz);
 
     }
 }
