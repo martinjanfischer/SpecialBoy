@@ -6,10 +6,15 @@ public class player_eingabe : MonoBehaviour
 {
     public float meineGeschwindigkeit = 10.0f;
     public float meineSprungGeschwindigkeit = 2.0f;
+    Vector3 Spawnposition;
+    public float Grenzex = 1;
+    public float Grenzez = 1;
+    public float Grenzey = 1;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Spawnposition = transform.position;
     }
 
     // Update is called once per frame
@@ -26,5 +31,19 @@ public class player_eingabe : MonoBehaviour
         }
         transform.Translate(tx, ty, tz);
 
+        // Wenn player position in x oder z richtung größer ist als die Grenze
+        // dann bewege den player zurück auf die spawn position
+        if (transform.position.x>Grenzex
+            || transform.position.z > Grenzez
+            || transform.position.y>Grenzey
+            || transform.position.x < -Grenzex
+            || transform.position.y< -Grenzey
+            || transform.position.z< -Grenzez
+            )
+        {
+            transform.position = Spawnposition;
+        }
+
     }
 }
+        
