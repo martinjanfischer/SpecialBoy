@@ -27,6 +27,7 @@ public class UsurpatorBehaviour : MonoBehaviour//, IDamageable
         float distance = Vector3.Distance(positionplayer, positionzombie);
 
         bool playerinrange = distance < radius;
+        /*
         if (schlaeft)
         {
             animator.SetBool("schlafen", false);
@@ -35,5 +36,6 @@ public class UsurpatorBehaviour : MonoBehaviour//, IDamageable
         else
         {
         }
+        */
     }
 }
