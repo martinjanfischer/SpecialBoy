@@ -22,20 +22,20 @@ public class UsurpatorBehaviour : MonoBehaviour//, IDamageable
     // Update is called once per frame
     void Update()
     {
-        Vector3 positionzombie = transform.position;
+        Vector3 positionDrache= transform.position;
         Vector3 positionplayer = player.transform.position;
-        float distance = Vector3.Distance(positionplayer, positionzombie);
+        float distanz = Vector3.Distance(positionplayer, positionDrache);
 
-        bool playerinrange = distance < radius;
-        /*
-        if (schlaeft)
+        bool playerInReichweite = distanz < radius;
+        if (schlaeft && playerInReichweite)
         {
             animator.SetBool("schlafen", false);
             schlaeft = false;
         }
-        else
+        if (!schlaeft && !playerInReichweite)
         {
+            animator.SetBool("schlafen", true);
+            schlaeft = true;
         }
-        */
     }
 }
