@@ -10,6 +10,7 @@ public class player_eingabe : MonoBehaviour
     public float Grenzex = 1;
     public float Grenzez = 1;
     public float Grenzey = 1;
+    public GameObject camera;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,11 @@ public class player_eingabe : MonoBehaviour
         {
             ty = meineSprungGeschwindigkeit * Time.deltaTime;
         }
-        transform.Translate(tx, ty, tz);
+        if (camera)
+        {
+            Vector3 forward = Vector3.Cross(camera.transform.right, Vector3.up);
+            transform.position += forward * tz + camera.transform.right * tx + Vector3.up * ty;
+        }
 
         // Wenn player position in x oder z richtung größer ist als die Grenze
         // dann bewege den player zurück auf die spawn position
