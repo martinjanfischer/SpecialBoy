@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.07883775, g: 0.08751034, b: 0.1042141, a: 1}
+  m_IndirectSpecularColor: {r: 0.07883786, g: 0.08751045, b: 0.10421432, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7367,7 +7367,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.000000002398234, y: 0.9902389, z: -0.1393805, w: 0.00000001703843}
+  m_LocalRotation: {x: -0.0000000023982338, y: 0.9902389, z: -0.1393805, w: -0.000000017038428}
   m_LocalPosition: {x: -24.23, y: 13.45, z: 52.710003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13612,6 +13612,7 @@ GameObject:
   - component: {fileID: 1474782103}
   - component: {fileID: 1474782102}
   - component: {fileID: 1474782104}
+  - component: {fileID: 1474782105}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -13670,6 +13671,36 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1474782105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1474782101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: 0}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1499341624
 GameObject:
   m_ObjectHideFlags: 0
@@ -14170,7 +14201,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712376646}
-  m_LocalRotation: {x: 0.000000001199117, y: 0.9902389, z: -0.1393805, w: 0.000000008519215}
+  m_LocalRotation: {x: -0.0000000011991169, y: 0.9902389, z: -0.1393805, w: -0.000000008519214}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
