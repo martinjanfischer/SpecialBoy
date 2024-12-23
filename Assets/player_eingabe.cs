@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody))]
 public class player_eingabe : MonoBehaviour
 {
     public float meineGeschwindigkeit = 10.0f;
@@ -10,34 +12,56 @@ public class player_eingabe : MonoBehaviour
     public float Grenzex = 1;
     public float Grenzez = 1;
     public float Grenzey = 1;
-    public GameObject camera;
+    public GameObject Kamera;
 
-    // Start is called before the first frame update
-    void Start()
+	float tx = 0.0f;
+	float ty = 0.0f;
+	float tz = 0.0f;
+	bool isGrounded = true;
+	Rigidbody rb;
+
+	// Start is called before the first frame update
+	void Start()
     {
         Spawnposition = transform.position;
-    }
+		rb = GetComponent<Rigidbody>();
+	}
 
-    // Update is called once per frame
-    void Update()
+	public void MyInputActionMovementVirtualJoystick(InputAction.CallbackContext _context)
+	{
+		Vector2 joystickPosition = _context.ReadValue<Vector2>();
+		tx = joystickPosition.x;
+		tz = joystickPosition.y;
+
+		tz *= meineGeschwindigkeit * Time.deltaTime;
+		tx *= meineGeschwindigkeit * Time.deltaTime;
+	}
+	void OnCollisionStay()
+	{
+		isGrounded = true;
+	}
+
+	public void MyInputActionJumpVirtualJoystick(InputAction.CallbackContext _context)
+	{
+		if (isGrounded && _context.phase == InputActionPhase.Performed)
+		{
+			Vector3 jump = new Vector3(0.0f, meineSprungGeschwindigkeit, 0.0f);
+			rb.AddForce(jump, ForceMode.Impulse);
+			isGrounded = false;
+		}
+	}
+
+	// Update is called once per frame
+	void Update()
     {
-        float tz = Input.GetAxis("Vertical") * meineGeschwindigkeit;
-        tz *= Time.deltaTime;
-        float tx = Input.GetAxis("Horizontal") * meineGeschwindigkeit;
-        tx *= Time.deltaTime;
-        float ty = 0;
-        if (Input.GetKey(KeyCode.Space))
+        if (Kamera)
         {
-            ty = meineSprungGeschwindigkeit * Time.deltaTime;
-        }
-        if (camera)
-        {
-            Vector3 forward = Vector3.Cross(camera.transform.right, Vector3.up);
-            transform.position += forward * tz + camera.transform.right * tx + Vector3.up * ty;
+            Vector3 forward = Vector3.Cross(Kamera.transform.right, Vector3.up);
+            transform.position += forward * tz + Kamera.transform.right * tx + Vector3.up * ty;
         }
 
-        // Wenn player position in x oder z richtung größer ist als die Grenze
-        // dann bewege den player zurück auf die spawn position
+        // Wenn player position in x oder z richtung grÃ¶ÃŸer ist als die Grenze
+        // dann bewege den player zurÃ¼ck auf die spawn position
         if (transform.position.x>Grenzex
             || transform.position.z > Grenzez
             || transform.position.y>Grenzey

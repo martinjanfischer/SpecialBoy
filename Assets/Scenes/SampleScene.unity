@@ -13932,7 +13932,7 @@ MonoBehaviour:
   Grenzex: 100
   Grenzez: 100
   Grenzey: 100
-  camera: {fileID: 963194225}
+  Kamera: {fileID: 963194225}
 --- !u!4 &1474782103
 Transform:
   m_ObjectHideFlags: 0
@@ -13978,8 +13978,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: 0}
-  m_NotificationBehavior: 0
+  m_Actions: {fileID: -944628639613478452, guid: 39fe78a91555a54459102eb277e292cc, type: 3}
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -13990,10 +13990,42 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1474782102}
+        m_TargetAssemblyTypeName: player_eingabe, Assembly-CSharp
+        m_MethodName: MyInputActionMovementVirtualJoystick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5c0b929c-6ddb-4ec1-bef4-cd308ef57449
+    m_ActionName: PlayerInputs/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1474782102}
+        m_TargetAssemblyTypeName: player_eingabe, Assembly-CSharp
+        m_MethodName: MyInputActionJumpVirtualJoystick
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6cadb21b-1acd-4715-b200-1a14dd733c94
+    m_ActionName: PlayerInputs/Jump[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultActionMap: PlayerInputs
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &1499341624
